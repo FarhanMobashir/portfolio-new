@@ -57,7 +57,7 @@ export default function Project({ postData }) {
         <h1>{postData.title}</h1>
         <TechnologyUsedContainer>
           {postData.technology.map((tech) => {
-            return <TechnologyUsed>{tech}</TechnologyUsed>;
+            return <TechnologyUsed key={tech}>{tech}</TechnologyUsed>;
           })}
         </TechnologyUsedContainer>
         <Date dateString={postData.date} />

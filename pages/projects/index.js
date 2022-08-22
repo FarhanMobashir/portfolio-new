@@ -82,7 +82,7 @@ export default function Projects({ allPostsData }) {
 
           <TechnologyUsedContainer>
             {technology.map((tech) => (
-              <TechnologyUsed>{tech}</TechnologyUsed>
+              <TechnologyUsed key={tech}>{tech}</TechnologyUsed>
             ))}
           </TechnologyUsedContainer>
           <small>
