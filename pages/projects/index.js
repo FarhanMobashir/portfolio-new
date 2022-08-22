@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { A } from "../../components/CustomLink";
 import Date from "../../components/Date";
-import { getSortedPostsData } from "../../lib/posts";
+import { getSortedProjectsData } from "../../lib/projects";
 import { typeScale } from "../../utils/typography";
 
 const Heading = styled.h1`
@@ -31,8 +31,23 @@ const BlogCardTitle = styled.a`
   cursor: pointer;
 `;
 
+const TechnologyUsedContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0rem;
+`;
+
+const TechnologyUsed = styled.div`
+  color: ${(props) => props.theme.buttonColor};
+  padding: 0.2rem 0.5rem;
+  border-radius: 50px;
+  font-size: ${typeScale.helperText};
+  background-color: ${(props) => props.theme.textColorLight};
+`;
+
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getSortedProjectsData();
   return {
     props: {
       allPostsData,
@@ -40,20 +55,26 @@ export async function getStaticProps() {
   };
 }
 
-export default function Writings({ allPostsData }) {
+export default function Projects({ allPostsData }) {
   return (
     <>
-      <Heading>Writings</Heading>
+      <Heading>Projects</Heading>
       <Desciption>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
         voluptas, quod, quia, voluptates quae voluptatem quibusdam voluptatum
         quos quas quidem nesciunt. Quisquam, quae. Quisquam quae, quod quibusdam
       </Desciption>
-      {allPostsData.map(({ id, date, title }) => (
+      {allPostsData.map(({ id, date, title, technology }) => (
         <BlogBox key={id}>
-          <Link href={`/writings/${id}`}>
+          <Link href={`/projects/${id}`}>
             <BlogCardTitle>{title}</BlogCardTitle>
           </Link>
+          <TechnologyUsedContainer>
+            {technology.map((tech) => (
+              <TechnologyUsed>{tech}</TechnologyUsed>
+            ))}
+          </TechnologyUsedContainer>
+
           <small>
             <Date dateString={date} />
           </small>

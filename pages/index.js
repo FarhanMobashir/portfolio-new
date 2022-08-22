@@ -2,6 +2,7 @@ import Link from "next/link";
 import * as React from "react";
 import styled from "styled-components";
 import { typeScale } from "../utils/typography";
+import { FaSpotify } from "react-icons/fa";
 
 const HeroSectionContainer = styled.div`
   display: flex;
@@ -58,8 +59,55 @@ const SmallButton = styled.button`
   color: ${(props) => props.theme.buttonColor};
 `;
 
+const NowPlayingContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0rem;
+`;
+
+const NowPlayingContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const SongName = styled.h3`
+  color: ${(props) => props.theme.textColor};
+  margin: 0;
+  font-weight: bold;
+`;
+
+const NowPlayingText = styled.p`
+  color: ${(props) => props.theme.textColor};
+  margin: 0;
+  font-weight: bold;
+  font-size: small;
+`;
+
+const SongArtist = styled.h4`
+  color: ${(props) => props.theme.textColor};
+  margin: 0;
+  font-weight: normal;
+`;
+
+export const getStaticProps = async () => {
+  const res = await fetch("http://localhost:3000/api/top-tracks");
+  let data;
+  try {
+    data = await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+  return {
+    props: {
+      data: data ? data.data : null,
+    },
+  };
+};
+
 // markup
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   return (
     <>
       <HeroSectionContainer>
@@ -77,6 +125,22 @@ const IndexPage = () => {
         </ContentContainer>
         <Avatar src="https://i.ibb.co/52ns5nT/prof.jpg" />
       </HeroSectionContainer>
+      <NowPlayingContainer>
+        <NowPlayingContainer>
+          <FaSpotify color="green" size={40} />
+          <NowPlayingText>
+            {data ? "Now Playing" : "Not Playing"}
+          </NowPlayingText>
+        </NowPlayingContainer>
+        <NowPlayingContentContainer>
+          {data && (
+            <>
+              <SongName>{data.item.name} by</SongName>
+              <SongArtist>{data.item.artists[0].name}</SongArtist>
+            </>
+          )}
+        </NowPlayingContentContainer>
+      </NowPlayingContainer>
     </>
   );
 };

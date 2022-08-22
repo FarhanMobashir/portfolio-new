@@ -14,7 +14,7 @@ We see this kind of joke all around the internet and people say how poorly javas
 
 ### Note
 
-There will be a lot of new and weird things you will notice throughout the blog and it is sure that you will not get all the concepts by reading it once. What I will suggest is to learn slowly and try to look at all the code snippets shared below. Also, check all the links for the specs to get a clearer insight. 
+There will be a lot of new and weird things you will notice throughout the blog and it is sure that you will not get all the concepts by reading it once. What I will suggest is to learn slowly and try to look at all the code snippets shared below. Also, check all the links for the specs to get a clearer insight.
 
 Let’s get back to the quote
 
@@ -31,7 +31,7 @@ Link: [https://262.ecma-international.org/9.0/#sec-ecmascript-language-types](ht
 
 The Spec defines the following primitive types as follows
 
-1 `undefined`: it has only one value that is undefined and any variable that has not been assigned a value has the value `undefined`
+1. `undefined`: it has only one value that is undefined and any variable that has not been assigned a value has the value `undefined`
 2. `null`: it has only one value that is null and it represents the intentional absence of any object value
 3. `boolean`: The boolean type represents a bool value that is either true of false
 4. `string`: The string type is the set of all ordered sequences of zero or more 16-bit unsigned [integer](https://262.ecma-international.org/11.0/#integer) values (“elements”) up to a maximum length of 2 raise to the power 53 - 1 elements.
@@ -45,21 +45,21 @@ That’s a lot of academic kind of stuff up there so let’s see some code to kn
 ```jsx
 let v;
 console.log(typeof v); // undefined
-v = "1"
+v = "1";
 console.log(typeof v); // string
 v = 2;
 console.log(typeof v); // number
 v = true;
 console.log(typeof v); // boolean
-v = {}
+v = {};
 console.log(typeof v); // object
 v = Symbol();
 console.log(typeof v); // symbol
-v = [1,2,3,4]
+v = [1, 2, 3, 4];
 console.log(typeof v); // object
 v = () => "hello";
 console.log(typeof v); // function
-v = null
+v = null;
 console.log(typeof v); // object
 v = 16n;
 console.log(typeof v); // bigint
@@ -81,18 +81,18 @@ Let’s see about the kind of emptiness javascript offers:
 
 ```jsx
 console.log(typeof m); // undefined
-// here in this case m doesn't even exist and still we get undefined becuase of javascript 
+// here in this case m doesn't even exist and still we get undefined becuase of javascript
 // pretend as if you can declare the variable after and is currently undeclared
 ```
 
-- undefined :  there is a variable and at the moment it has no value
+- undefined : there is a variable and at the moment it has no value
 
 ```jsx
 let v;
 console.log(typeof v); // undefined
 ```
 
-- uninitialized:  for block scope variables they are not initialized or set to undefined and you cannot allow touching (tdz) and hence are in an uninitialized position. Learn more : [https://www.freecodecamp.org/news/javascript-temporal-dead-zone-and-hoisting-explained/](https://www.freecodecamp.org/news/javascript-temporal-dead-zone-and-hoisting-explained/)
+- uninitialized: for block scope variables they are not initialized or set to undefined and you cannot allow touching (tdz) and hence are in an uninitialized position. Learn more : [https://www.freecodecamp.org/news/javascript-temporal-dead-zone-and-hoisting-explained/](https://www.freecodecamp.org/news/javascript-temporal-dead-zone-and-hoisting-explained/)
 
 ### Some Special Value
 
@@ -128,7 +128,7 @@ console.log(isNaN(greet)); // true
 
 ```jsx
 function myIsNaN(num) {
-  if(typeof num !== "number") {
+  if (typeof num !== "number") {
     num = Number(num);
     console.log(num);
     return num !== num;
@@ -179,11 +179,11 @@ console.log(trendRate < 0); // false
 console.log(trendRate > 0); // false
 
 // to check negative zero we can use Object.is()
-console.log(Object.is(trendRate,-0)); // true
-console.log(Object.is(trendRate,0)); // false
+console.log(Object.is(trendRate, -0)); // true
+console.log(Object.is(trendRate, 0)); // false
 
 // using Math.sign()
-console.log(Math.sign(-0)); // -0 
+console.log(Math.sign(-0)); // -0
 console.log(Math.sign(0)); // 0
 console.log(Math.sign(-3)); // -1
 console.log(Math.sign(3)); // 1
@@ -191,7 +191,7 @@ console.log(Math.sign(3)); // 1
 
 Here in the above example, we can see how weird it behaves while working with `-0` and how to handle that corner case.
 
-We also see that `Math.sign()` also return weird result in case of `0` and `-0` .  
+We also see that `Math.sign()` also return weird result in case of `0` and `-0` .
 
 ## Abstract operation
 
@@ -216,8 +216,8 @@ console.log(Number(null)); // 0
 console.log(Number(undefined)); // NaN
 console.log(Number([""])); // 0
 console.log(Number({})); // NaN
-console.log(Number([1,2])); // NaN
-console.log(Number({a:"hello"})); // NaN
+console.log(Number([1, 2])); // NaN
+console.log(Number({ a: "hello" })); // NaN
 ```
 
 1. **ToPrimitve(value, hint)**: This operation is performed to covert any not primitive value to a primitive value and does it in two steps. First, it checks valueOf(), and then it converts it to ToString() to get the desired result. Link for further reading [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)
@@ -225,9 +225,9 @@ console.log(Number({a:"hello"})); // NaN
 
 ```jsx
 let c = -0;
-let arr = [1,2,3,4]
-let arr1 = [null,undefined,true,1,"1"];
-let obj = {apple: "red"}
+let arr = [1, 2, 3, 4];
+let arr1 = [null, undefined, true, 1, "1"];
+let obj = { apple: "red" };
 console.log(arr.toString()); // "1,2,3,4"
 console.log(c.toString()); // "0"
 console.log(arr1.toString()); // ",,true,1,1" | undefined and null are ignored
@@ -245,14 +245,14 @@ console.log(Boolean({})); // true
 console.log(Boolean([])); // true
 ```
 
-| falsy | truthy |
-| --- | --- |
-| “” | “foo” |
-| 0,-0 | 23 |
-| null | {a:1} |
-| NaN | [1,3] |
-| false | true |
-| undefined | function(){}  |
+| falsy     | truthy       |
+| --------- | ------------ |
+| “”        | “foo”        |
+| 0,-0      | 23           |
+| null      | {a:1}        |
+| NaN       | [1,3]        |
+| false     | true         |
+| undefined | function(){} |
 
 ### Equality and Coercion
 
@@ -288,7 +288,7 @@ console.log(Number("  \t")); // 0
 console.log(Number(null)); // 0
 console.log(Number(undefined)); // NaN
 console.log(Number([])); // 0
-console.log(Number([1,2,3])); // NaN
+console.log(Number([1, 2, 3])); // NaN
 console.log(Number([null])); // 0
 console.log(Number([undefined])); // 0
 console.log(Number({})); // NaN
@@ -308,15 +308,15 @@ console.log(1 < 2); // true
 console.log(2 < 3); // true
 console.log(1 < 2 < 3); // true
 
-console.log((1 < 2) < 3); // true
-console.log((true) < 3); // true
+console.log(1 < 2 < 3); // true
+console.log(true < 3); // true
 console.log(1 < 3); // true
 
 console.log(3 > 2); // true
 console.log(2 > 1); // true
 console.log(3 > 2 > 1); // false
 
-console.log((3 > 2) > 1); // false
+console.log(3 > 2 > 1); // false
 console.log(true > 1); // false
 console.log(1 > 1); // false
 ```
@@ -325,7 +325,7 @@ By keeping in mind the corner cases shown below we will see how we can easily le
 
 ### Equality (`==` vs `===`)
 
-The most common place where we notice coercion is when we use double equal `==` and hence due to that we have a notion to use `===` everywhere to **avoid coercion**. 
+The most common place where we notice coercion is when we use double equal `==` and hence due to that we have a notion to use `===` everywhere to **avoid coercion**.
 
 - We have a notion that `==` checks value or we can call loose equality check whereas `===` check value as well as the type which is strict equality check
 - However, this notion is not totally true. Let’s see how.
@@ -346,7 +346,7 @@ console.log(a == b); // due to array stringifying
 ```
 
 - `==` prefers a numeric comparison
-- `==` always compares two primitive values and if they don’t get a primitive value in either of the two then it does the toPrimitive() operation which first does valueOf()  and then toString() to get the result
+- `==` always compares two primitive values and if they don’t get a primitive value in either of the two then it does the toPrimitive() operation which first does valueOf() and then toString() to get the result
 - We should try to make comparisons mostly by making the type the same whenever it is possible.
 
 **Corner Cases of `==`**
@@ -371,7 +371,7 @@ console.log(arr === true); // false
 
 ### Summary
 
-- Avoid `==` with 0 or `“”` or even `“   "`
+- Avoid `==` with 0 or `“”` or even `“ "`
 - Avoid using `==` with non-primitives
 - Don’t use `==` to `true` and `false`
 - `==` is not about comparisons with unknown types
@@ -391,10 +391,10 @@ console.log(arr === true); // false
 2. Specs for Strict Equality Comparison: [https://262.ecma-international.org/11.0/#sec-abstract-equality-comparison](https://262.ecma-international.org/11.0/#sec-abstract-equality-comparison)
 3. ToPrimitive : [https://262.ecma-international.org/11.0/#sec-toprimitive](https://262.ecma-international.org/11.0/#sec-toprimitive)
 4. Corner Cases in other languages: [https://codeblog.jonskeet.uk/2005/10/02/corner-cases-in-java-and-c/](https://codeblog.jonskeet.uk/2005/10/02/corner-cases-in-java-and-c/).
-5. valueOf() :  [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)
-6. isNaN :  [https://262.ecma-international.org/11.0/#sec-isnan-number](https://262.ecma-international.org/11.0/#sec-isnan-number)
+5. valueOf() : [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/valueOf)
+6. isNaN : [https://262.ecma-international.org/11.0/#sec-isnan-number](https://262.ecma-international.org/11.0/#sec-isnan-number)
 7. Number.isNaN : [https://262.ecma-international.org/11.0/#sec-number.isnan](https://262.ecma-international.org/11.0/#sec-number.isnan)
 8. A great video showing some weird js behavior that we’ve read above: [https://www.youtube.com/watch?v=et8xNAc2ic8](https://www.youtube.com/watch?v=et8xNAc2ic8)
 9. A website containing a lot of weird corner cases of javascript: [https://wtfjs.com/](https://wtfjs.com/)
 
-> If you have any suggestions for improvement please reach out to me at  [Twitter](https://twitter.com/MobashirFarhan)
+> If you have any suggestions for improvement please reach out to me at [Twitter](https://twitter.com/MobashirFarhan)

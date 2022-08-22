@@ -24,6 +24,7 @@ const LeftContainer = styled.div`
 
 const Logo = styled.h1`
   color: ${(props) => props.theme.textColor};
+  cursor: pointer;
 `;
 
 const LinksContainer = styled.ul`

@@ -14,7 +14,7 @@ export const darkTheme = {
   primaryColor: primaryColor[500],
   buttonColor: neutral[100],
   buttonBgColor: primaryColor[500],
-  bgColor: neutral[600],
+  bgColor: neutral[500],
   textColor: neutral[100],
   lightBgColor: neutral[400],
   textColorLight: neutral[400],

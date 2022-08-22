@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { red } from "./colors";
 import { primaryFont } from "./typography";
 
 export const GlobalStyle = createGlobalStyle`
@@ -17,7 +18,9 @@ code {
   overflow: auto;
   width: 100%;
   color: ${(props) => props.theme.textColor};
-
+  border: 1px solid ${red[300]};
+  padding: 0.1rem;
+  border-radius: 4px;
 }
 
 pre {
@@ -26,8 +29,14 @@ pre {
   overflow: auto;
   width: 100%;
   background-color: ${(props) => props.theme.bgColor};
-  padding: 1rem;
   border-radius: 1rem;
+  padding: 1rem;
+  color: ${(props) => props.theme.textColor};
+}
+
+pre code {
+  background-color: transparent;
+  border: none;
   color: ${(props) => props.theme.textColor};
 }
 
@@ -40,6 +49,16 @@ body {
   background-color: ${(props) => props.theme.bgColor};
   color: ${(props) => props.theme.textColor};
 }
+
+a {
+  color: ${(props) => props.theme.textColorLight};
+  text-decoration: none;
+}
+
+li {
+  margin: 1rem 0;
+}
+
 
 @media (max-width:800px) {
   body {
