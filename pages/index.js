@@ -113,7 +113,14 @@ export const getStaticProps = async () => {
 };
 
 // markup
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
+  const [data, setData] = React.useState(null);
+  React.useEffect(() => {
+    fetch("/api/top-tracks")
+      .then((res) => res.json())
+      .then((data) => setData(data.data));
+  }, []);
+
   return (
     <>
       <HeroSectionContainer>
