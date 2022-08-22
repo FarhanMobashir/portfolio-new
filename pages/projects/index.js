@@ -5,6 +5,7 @@ import { A } from "../../components/CustomLink";
 import Date from "../../components/Date";
 import { getSortedProjectsData } from "../../lib/projects";
 import { typeScale } from "../../utils/typography";
+import { BiLinkExternal } from "react-icons/bi";
 
 const Heading = styled.h1`
   color: ${(props) => props.theme.textColor};
@@ -14,6 +15,13 @@ const Heading = styled.h1`
 
 const Desciption = styled.p`
   color: ${(props) => props.theme.textColorLight};
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 1rem 0rem;
+  gap: 1rem;
 `;
 
 const BlogBox = styled.div`
@@ -66,15 +74,17 @@ export default function Projects({ allPostsData }) {
       </Desciption>
       {allPostsData.map(({ id, date, title, technology }) => (
         <BlogBox key={id}>
-          <Link href={`/projects/${id}`}>
-            <BlogCardTitle>{title}</BlogCardTitle>
-          </Link>
+          <TitleContainer>
+            <Link href={`/projects/${id}`}>
+              <BlogCardTitle>{title}</BlogCardTitle>
+            </Link>
+          </TitleContainer>
+
           <TechnologyUsedContainer>
             {technology.map((tech) => (
               <TechnologyUsed>{tech}</TechnologyUsed>
             ))}
           </TechnologyUsedContainer>
-
           <small>
             <Date dateString={date} />
           </small>

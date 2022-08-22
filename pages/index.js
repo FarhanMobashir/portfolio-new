@@ -53,10 +53,9 @@ const ButtonContainer = styled.div`
 
 const SmallButton = styled.button`
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 50px;
   border: none;
-  background-color: ${(props) => props.theme.buttonBgColor};
-  color: ${(props) => props.theme.buttonColor};
+  font-weight: bold;
 `;
 
 const NowPlayingContainer = styled.div`
@@ -91,6 +90,13 @@ const SongArtist = styled.h4`
   font-weight: normal;
 `;
 
+const AlbumCover = styled.img`
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  object-fit: cover;
+`;
+
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:3000/api/top-tracks");
   let data;
@@ -119,8 +125,8 @@ const IndexPage = ({ data }) => {
             development, serverless, and React / Next.js. Helping developers
           </UserIntro>
           <ButtonContainer>
-            <SmallButton>Small</SmallButton>
-            <SmallButton>Big</SmallButton>
+            <SmallButton>Casual</SmallButton>
+            <SmallButton>Professional</SmallButton>
           </ButtonContainer>
         </ContentContainer>
         <Avatar src="https://i.ibb.co/52ns5nT/prof.jpg" />
@@ -137,6 +143,7 @@ const IndexPage = ({ data }) => {
             <>
               <SongName>{data.item.name} by</SongName>
               <SongArtist>{data.item.artists[0].name}</SongArtist>
+              <AlbumCover src={data.item.album.images[0].url} />
             </>
           )}
         </NowPlayingContentContainer>
