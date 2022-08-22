@@ -98,7 +98,7 @@ const AlbumCover = styled.img`
 `;
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/top-tracks");
+  const res = await fetch("https://mobashirfarhan.vercel.app/api/top-tracks");
   let data;
   try {
     data = await res.json();
