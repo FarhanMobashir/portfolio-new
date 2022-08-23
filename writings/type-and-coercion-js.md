@@ -1,7 +1,7 @@
 ---
 title: "Types and Coercion in JS"
 description: "A quick guide to types and coercion in JavaScript."
-date: "2020-01-02"
+date: "2022-08-12"
 ---
 
 Most of you are familiar with the saying everyone quotes, which is “Everything in Javascript are Objects”. What if I tell you that’s not entirely true? In this blog, we will be taking a deep dive into types in Javascript. People try to stay away from types, especially in dynamically typed language but sometimes not knowing about types can cause some real bugs in your code. We often experience some weird behavior from our program as shown below.

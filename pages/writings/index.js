@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { A } from "../../components/CustomLink";
 import Date from "../../components/Date";
 import { getPostMinute } from "../../lib/helpers";
 import { getSortedPostsData } from "../../lib/posts";
 import { typeScale } from "../../utils/typography";
+import { FaRegClock } from "react-icons/fa";
 
 const Heading = styled.h1`
   color: ${(props) => props.theme.textColor};
@@ -32,12 +32,22 @@ const BlogCardTitle = styled.a`
   cursor: pointer;
 `;
 
+const DateAndTimeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0rem;
+`;
+
 const DateText = styled.small`
   color: ${(props) => props.theme.textColorLight};
   font-size: ${typeScale.helperText};
 `;
 
 const TimeText = styled.small`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: ${(props) => props.theme.textColorLight};
   font-size: ${typeScale.paragraph};
 `;
@@ -64,10 +74,15 @@ export default function Writings({ allPostsData }) {
           <Link href={`/writings/${id}`}>
             <BlogCardTitle>{title}</BlogCardTitle>
           </Link>
-          <DateText>
-            <Date dateString={date} />
-          </DateText>
-          <TimeText>{getPostMinute(content)} min read</TimeText>
+          <DateAndTimeContainer>
+            <DateText>
+              <Date dateString={date} />
+            </DateText>
+            <TimeText>
+              {getPostMinute(content)} min read
+              <FaRegClock />
+            </TimeText>
+          </DateAndTimeContainer>
         </BlogBox>
       ))}
     </>

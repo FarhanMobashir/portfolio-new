@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Date from "../../components/Date";
 import { typeScale } from "../../utils/typography";
 import { getPostMinute } from "../../lib/helpers";
+import { FaRegClock } from "react-icons/fa";
 
 const MainContainer = styled.div`
   word-wrap: break-word;
@@ -36,6 +37,9 @@ const DateAndReadingTime = styled.div`
 `;
 
 const ReadingTime = styled.small`
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
   color: ${(props) => props.theme.textColorLight};
   font-size: ${typeScale.paragraph};
 `;
@@ -79,7 +83,7 @@ export default function Post({ postData }) {
         <DateAndReadingTime>
           <Date dateString={postData.date} />
           <ReadingTime>
-            {getPostMinute(postData.contentHtml)} min read
+            {getPostMinute(postData.contentHtml)} min read <FaRegClock />
           </ReadingTime>
         </DateAndReadingTime>
         <ContentContainer
