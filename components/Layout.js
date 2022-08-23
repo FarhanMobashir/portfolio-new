@@ -7,7 +7,6 @@ import { typeScale } from "../utils/typography";
 import Link from "next/link";
 import { A } from "./CustomLink";
 import { HiOutlineLightBulb, HiOutlineMoon } from "react-icons/hi";
-import { Seo } from "./Seo";
 import {
   FaArrowCircleUp,
   FaEnvelope,
@@ -98,7 +97,6 @@ export const Layout = ({
 
   return (
     <>
-      <Seo />
       <GlobalStyle />
       <AppHeader>
         <LeftContainer>
