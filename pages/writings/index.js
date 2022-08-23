@@ -15,6 +15,7 @@ const Heading = styled.h1`
 
 const Desciption = styled.p`
   color: ${(props) => props.theme.textColorLight};
+  text-decoration: none;
 `;
 
 const BlogBox = styled.div`
