@@ -11,12 +11,8 @@ import { Seo } from "./Seo";
 import {
   FaArrowCircleUp,
   FaEnvelope,
-  FaGithub,
   FaGithubAlt,
-  FaLinkedin,
   FaLinkedinIn,
-  FaMailBulk,
-  FaTwitch,
   FaTwitter,
 } from "react-icons/fa";
 

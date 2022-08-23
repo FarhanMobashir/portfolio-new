@@ -372,9 +372,11 @@ const IndexPage = ({ projects, blogs }) => {
             </SmallButton>
           </ButtonContainer>
         </ContentContainer>
-        <Avatar
-          src={isCasual ? HeroData.casual.avatar : HeroData.professional.avatar}
-        />
+        {isCasual ? (
+          <Avatar src={HeroData.casual.avatar} />
+        ) : (
+          <Avatar src={HeroData.professional.avatar} />
+        )}
       </HeroSectionContainer>
       {/* sections */}
 

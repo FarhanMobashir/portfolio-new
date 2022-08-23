@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
 
-export function Seo(props) {
-  const url = "https://www.mobashirfarhan.vercel.app";
-  const title = "Mobashir Farhan";
-  const description = "Mobashir Farhan's personal website";
-  const image = "https://i.ibb.co/WfTLdny/pro-c.jpg";
-
+export function Seo({
+  title = "Mobashir Farhan",
+  description = "Mobashir Farhan's personal website",
+  image = "https://i.ibb.co/WfTLdny/pro-c.jpg",
+  url = "https://www.mobashirfarhan.vercel.app",
+}) {
   return (
     <Helmet>
       <title>{title}</title>
