@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { A } from "../../components/CustomLink";
 import Date from "../../components/Date";
+import { getPostMinute } from "../../lib/helpers";
 import { getSortedPostsData } from "../../lib/posts";
 import { typeScale } from "../../utils/typography";
 
@@ -25,14 +26,24 @@ const BlogBox = styled.div`
 const BlogCardTitle = styled.a`
   color: ${(props) => props.theme.textColor};
   font-size: ${typeScale.header3};
+  text-decoration: underline;
   font-weight: bold;
   margin: 5px 0px;
-  text-decoration: none;
   cursor: pointer;
 `;
 
+const DateText = styled.small`
+  color: ${(props) => props.theme.textColorLight};
+  font-size: ${typeScale.helperText};
+`;
+
+const TimeText = styled.small`
+  color: ${(props) => props.theme.textColorLight};
+  font-size: ${typeScale.paragraph};
+`;
+
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
   return {
     props: {
       allPostsData,
@@ -48,14 +59,15 @@ export default function Writings({ allPostsData }) {
         I write about my experiences and learnings. I also write about the
         technologies I use and the problems I face.
       </Desciption>
-      {allPostsData.map(({ id, date, title }) => (
+      {allPostsData.map(({ id, date, title, content }) => (
         <BlogBox key={id}>
           <Link href={`/writings/${id}`}>
             <BlogCardTitle>{title}</BlogCardTitle>
           </Link>
-          <small>
+          <DateText>
             <Date dateString={date} />
-          </small>
+          </DateText>
+          <TimeText>{getPostMinute(content)} min read</TimeText>
         </BlogBox>
       ))}
     </>

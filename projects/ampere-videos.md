@@ -1,8 +1,8 @@
 ---
 title: "Ampere Videos - A video streaming platform like YouTube"
 description: "Ampere Videos is a video streaming platform like YouTube. It's built with React and Mockbee."
-date: "2020-01-02"
-technology: ["React", "MockBee", "AmperUI"]
+date: "2022-04-11"
+technology: ["React", "MockBee", "AmpereUI"]
 liveLink: "https://ampere-videos.netlify.app/"
 sourceCode: "https://github.com/FarhanMobashir/ampere-videos"
 ---

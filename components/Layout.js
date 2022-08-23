@@ -10,8 +10,12 @@ import { HiOutlineLightBulb, HiOutlineMoon } from "react-icons/hi";
 import { Seo } from "./Seo";
 import {
   FaArrowCircleUp,
+  FaEnvelope,
   FaGithub,
+  FaGithubAlt,
   FaLinkedin,
+  FaLinkedinIn,
+  FaMailBulk,
   FaTwitch,
   FaTwitter,
 } from "react-icons/fa";
@@ -143,9 +147,21 @@ export const Layout = ({
           />
         </CopyrightTextContainer>
         <SocialIconsContainer>
-          <FaTwitter size={24} />
-          <FaGithub size={24} />
-          <FaLinkedin size={24} />
+          <A href="https://twitter.com/MobashirFarhan" target="_blank">
+            <FaTwitter size={24} />
+          </A>
+          <A href="https://github.com/FarhanMobashir" target="_blank">
+            <FaGithubAlt size={24} />
+          </A>
+          <A href="mailto:farhanmobashir007@gmail.com" target="_blank">
+            <FaEnvelope size={24} />
+          </A>
+          <A
+            href="https://www.linkedin.com/in/mobashir-farhan/"
+            target="_blank"
+          >
+            <FaLinkedinIn size={24} />
+          </A>
         </SocialIconsContainer>
       </Footer>
     </>

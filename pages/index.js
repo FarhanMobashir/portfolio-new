@@ -3,6 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 import { typeScale } from "../utils/typography";
 import { FaExternalLinkAlt, FaSpotify } from "react-icons/fa";
+import { RiSpotifyLine } from "react-icons/ri";
 import { getSortedProjectsData } from "../lib/projects";
 import { getSortedPostsData } from "../lib/posts";
 import { FaArrowRight } from "react-icons/fa";
@@ -56,18 +57,20 @@ const Avatar = styled.img`
 const ButtonContainer = styled.div`
   display: flex;
   gap: 1rem;
-  padding: 2rem 0rem;
+  padding-bottom: 1.5rem;
 `;
 
 const SmallButton = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 50px;
+  cursor: pointer;
   border: none;
   font-weight: bold;
-  background-color: ${(props) => props.theme.textColorLight};
+  background-color: ${(props) =>
+    props.status === "active"
+      ? props.theme.buttonBgColor
+      : props.theme.textColorLight};
   color: ${(props) => props.theme.buttonColor};
-  border: ${(props) =>
-    props.status === "active" ? `2px solid ${props.theme.textColor}` : "none"};
 `;
 
 const SectionContainer = styled.div``;
@@ -99,6 +102,7 @@ const ViewAllButton = styled.a`
   text-decoration: underline;
   font-size: ${typeScale.h4};
   display: flex;
+  justify-content: flex-end;
   gap: 1rem;
   align-items: center;
   border-radius: 50px;
@@ -189,6 +193,7 @@ const ProjectContainer = styled.div`
 `;
 
 const ProjectTitle = styled.h3`
+  cursor: pointer;
   color: ${(props) => props.theme.textColor};
   margin: 0;
   text-decoration: underline;
@@ -220,7 +225,7 @@ const ProjectLink = styled.a`
 const ProjectSourceCode = styled.a`
   color: ${(props) => props.theme.textColorLight};
   margin: 0;
-  font-weight: normal;
+  cursor: pointer;
   text-decoration: underline;
   display: flex;
   gap: 0.5rem;
@@ -248,6 +253,9 @@ const BlogDescription = styled.p`
 const BlogLink = styled.a`
   color: ${(props) => props.theme.textColorLight};
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: normal;
   text-decoration: underline;
 `;
@@ -258,7 +266,10 @@ const Blog = ({ title, description, link }) => {
       <BlogTitle>{title}</BlogTitle>
       <BlogDescription>{description}</BlogDescription>
       <Link href={`/writings/${link}`}>
-        <BlogLink>Read more</BlogLink>
+        <BlogLink>
+          Read more
+          <FaArrowRight />
+        </BlogLink>
       </Link>
     </BlogContainer>
   );
@@ -272,11 +283,11 @@ const Project = ({ title, description, liveLink, sourceCode, link }) => {
       </Link>
       <ProjectDescription>{description}</ProjectDescription>
       <ProjectLinkContainer>
-        <ProjectLink href={liveLink}>
+        <ProjectLink href={liveLink} target="_blank">
           Live Link
           <FaExternalLinkAlt />
         </ProjectLink>
-        <ProjectSourceCode href={sourceCode}>
+        <ProjectSourceCode href={sourceCode} target="_blank">
           Source Code
           <FaExternalLinkAlt />
         </ProjectSourceCode>
@@ -287,22 +298,26 @@ const Project = ({ title, description, liveLink, sourceCode, link }) => {
 
 const HeroData = {
   casual: {
-    profession: "Singing | Photography | Music",
+    name: "mobashir farhan",
+    profession: "singing 🎸 | photography 📸 | music 🎧",
     intro:
-      "This is Mobashir Farhan, and he enjoys watching the sunset, eating candyfloss and waking up late in the morning.Just kidding, more importantly his friend will describe him as someone who loves to draw beautiful things, cook delicious foods, play guitar and loves to motivate them to start learning programming which sometimes irritate them 😂",
+      "this is mobashir farhan, and he enjoys watching the sunset, eating candyfloss and waking up late in the morning.Just kidding, more importantly his friend will describe him as someone who loves to draw beautiful things, cook delicious foods, play guitar and loves to motivate them to start learning programming which sometimes irritate them 😂",
     avatar: "https://i.ibb.co/WfTLdny/pro-c.jpg",
   },
   professional: {
-    profession: "FrontEnd | Javascript | ReactJs",
+    name: "Mobashir Farhan",
+    profession: "FrontEnd 🧑‍💻 | Javascript 🟨 | ReactJs ⚛️",
     intro:
-      "I am a FrontEnd Developer with 2+ years of experience in building web applications. I have worked on various projects using ReactJs, NextJs, NodeJs, ExpressJs, MongoDB, Firebase, and many more.",
+      "I am a FrontEnd Developer, I love to code and I am passionate about learning new things. I love to solve problems and I am always ready to learn new things. I want to be a part of a team where I can learn and grow. Curious to know more about me? Let's connect!",
     avatar: "https://i.ibb.co/52ns5nT/prof.jpg",
   },
 };
 
 export const getStaticProps = async () => {
   const allProjectsData = getSortedProjectsData().slice(0, 3);
-  const allPostsData = getSortedPostsData().slice(0, 3);
+  const allPostsData = await getSortedPostsData();
+
+  allPostsData.slice(0, 3);
 
   return {
     props: {
@@ -327,7 +342,9 @@ const IndexPage = ({ projects, blogs }) => {
     <>
       <HeroSectionContainer>
         <ContentContainer>
-          <UserName>Mobashir Farhan</UserName>
+          <UserName>
+            {isCasual ? HeroData.casual.name : HeroData.professional.name}
+          </UserName>
           <UserProfession>
             {isCasual
               ? HeroData.casual.profession
@@ -380,7 +397,7 @@ const IndexPage = ({ projects, blogs }) => {
         </UnorderedList>
         <Link href="/projects">
           <ViewAllButton>
-            View all <FaArrowRight />
+            See all projects <FaArrowRight />
           </ViewAllButton>
         </Link>
         <SectionDivider />
@@ -402,7 +419,7 @@ const IndexPage = ({ projects, blogs }) => {
         </UnorderedList>
         <Link href="/writings">
           <ViewAllButton>
-            View all blogs <FaArrowRight />
+            Read all blogs <FaArrowRight />
           </ViewAllButton>
         </Link>
         <SectionDivider />
@@ -415,6 +432,7 @@ const IndexPage = ({ projects, blogs }) => {
         <UnorderedListForProjects>
           <ListItem>ReactJs</ListItem>
           <ListItem>NextJs</ListItem>
+          <ListItem>GatsbyJs</ListItem>
           <ListItem>NodeJs</ListItem>
           <ListItem>ExpressJs</ListItem>
           <ListItem>MongoDB</ListItem>
@@ -422,12 +440,14 @@ const IndexPage = ({ projects, blogs }) => {
           <ListItem>HTML</ListItem>
           <ListItem>CSS</ListItem>
           <ListItem>JavaScript</ListItem>
+          <ListItem>TypeScript</ListItem>
+          <ListItem>Styled Components</ListItem>
         </UnorderedListForProjects>
         <SectionDivider />
       </SectionContainer>
       <NowPlayingContainer>
         <NowPlayingContainer>
-          <FaSpotify size={40} />
+          <FaSpotify color="green" size={30} />
           <NowPlayingText>
             {data ? "Now Listening" : "Not Playing"}
           </NowPlayingText>

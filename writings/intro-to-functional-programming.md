@@ -4,8 +4,6 @@ description: "Functional programming is a programming paradigm that treats compu
 date: "2020-01-02"
 ---
 
-### Introduction to Functional Programming
-
 In computer science, functional programming is a programming paradigm more specifically a declarative paradigm where programs are constructed using functions and composing functions. In functional programming, functions are treated as values that can be passed to other functions as arguments. Languages support like Haskell, Clojure, Elm support functional patterns very well. Javascript, on the other hand, is not really a fully functional language however `functions` in Javascript are first-class citizens and hence we can use it to use functional programming in our code really well.
 
 Functional programming has one simple and main idea of having pure functions which basically means it only takes its input in gives output back irrespective of what having outside of the world.

@@ -1,10 +1,10 @@
 ---
 title: "Ampere-Doc - A note taking app"
 description: "Ampere-Doc is a note taking app. It's built with React, Node, Express and MongoDB."
-date: "2020-01-02"
+date: "2022-06-10"
 technology: ["React", "Node", "Express", "MongoDB"]
 liveLink: "https://ampere-doc.netlify.app/"
-sourceCode: "https://github.com/FarhanMobashir/ampere-doc-frontend"
+sourceCode: "https://github.com/FarhanMobashir/ampere-doc"
 ---
 
 # Ampere-Doc

@@ -1,7 +1,7 @@
 ---
 title: "Hardtail - A data fetching library for React"
 description: "Hardtail is a data fetching library for React that allows you to fetch data in a declarative way."
-date: "2020-01-02"
+date: "2022-07-06"
 technology: ["React", "fetchApi", "Context API"]
 liveLink: "https://hardtail.netlify.app/"
 sourceCode: "https://github.com/FarhanMobashir/hardtail"
@@ -18,9 +18,9 @@ We also get hooks for fetching data, updating data, deleting data and creating d
 ## Usage
 
 ```js
-const { data, error, isLoading } = useGetPosts(
-  "https://jsonplaceholder.typicode.com/posts"
-);
+const { data, error, isLoading, reload } = useGetPosts();
+
+const [updatePost, { data, error, isLoading }] = useUpdatePost();
 ```
 
 ## Features
