@@ -364,7 +364,7 @@ const IndexPage = ({ projects, blogs }) => {
       <SectionContainer>
         <SectionTitle>Projects</SectionTitle>
         <SectionSubtitle>
-          These are some of the projects I've worked on
+          These are some of the projects I have worked on
         </SectionSubtitle>
         <UnorderedList>
           {projects.map((project) => (
@@ -388,7 +388,7 @@ const IndexPage = ({ projects, blogs }) => {
       <SectionContainer>
         <SectionTitle>Blogs</SectionTitle>
         <SectionSubtitle>
-          These are some of the blogs I've written on
+          These are some of the blogs I have written on
         </SectionSubtitle>
         <UnorderedList>
           {blogs.map((project) => (
@@ -408,9 +408,9 @@ const IndexPage = ({ projects, blogs }) => {
         <SectionDivider />
       </SectionContainer>
       <SectionContainer>
-        <SectionTitle>Technologies I've worked with</SectionTitle>
+        <SectionTitle>Technologies I have worked with</SectionTitle>
         <SectionSubtitle>
-          These are the technologies I've worked with in the past
+          These are the technologies I have worked with in the past
         </SectionSubtitle>
         <UnorderedListForProjects>
           <ListItem>ReactJs</ListItem>
