@@ -1,5 +1,6 @@
 ---
 title: "Types and Coercion in JS"
+description: "A quick guide to types and coercion in JavaScript."
 date: "2020-01-02"
 ---
 

@@ -29,20 +29,24 @@ const TechnologyUsed = styled.div`
   background-color: ${(props) => props.theme.textColorLight};
 `;
 
+const LinksContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0rem;
+`;
+
 const ViewProjectButton = styled.a`
   color: ${(props) => props.theme.textColor};
   font-size: ${typeScale.paragraph};
-  margin: 5px 0px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
-  padding: 0.5rem 1rem;
   border-radius: 50px;
   border: none;
   font-weight: bold;
   text-decoration: underline;
-  display: flex;
-  align-items: center;
-  display: inline-block;
 `;
 
 export default function Project({ postData }) {
@@ -61,12 +65,15 @@ export default function Project({ postData }) {
           })}
         </TechnologyUsedContainer>
         <Date dateString={postData.date} />
-        <ViewProjectButton href={postData.link} target="_blank">
-          Live Link <BiLinkExternal />
-        </ViewProjectButton>
-        <ViewProjectButton href={postData.link} target="_blank">
-          Source Code <BiLinkExternal />
-        </ViewProjectButton>
+        <LinksContainer>
+          <ViewProjectButton href={postData.link} target="_blank">
+            Live Link <BiLinkExternal />
+          </ViewProjectButton>
+          <ViewProjectButton href={postData.link} target="_blank">
+            Source Code <BiLinkExternal />
+          </ViewProjectButton>
+        </LinksContainer>
+
         <ContentContainer
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />

@@ -1,4 +1,4 @@
-export const primaryFont = '"Lato", sans-serif';
+export const primaryFont = "'IBM Plex Sans', sans-serif";
 
 export const typeScale = {
   bigHeader: "2.5rem",

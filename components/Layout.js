@@ -6,7 +6,15 @@ import styled from "styled-components";
 import { typeScale } from "../utils/typography";
 import Link from "next/link";
 import { A } from "./CustomLink";
-import { BiMoon, BiSun } from "react-icons/bi";
+import { HiOutlineLightBulb, HiOutlineMoon } from "react-icons/hi";
+import { Seo } from "./Seo";
+import {
+  FaArrowCircleUp,
+  FaGithub,
+  FaLinkedin,
+  FaTwitch,
+  FaTwitter,
+} from "react-icons/fa";
 
 // conmponents
 
@@ -53,9 +61,23 @@ const ThemeToggleButton = styled.button`
 const Footer = styled.footer`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 8px 16px;
   color: ${(props) => props.theme.textColor};
+`;
+
+const CopyrightTextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
+const SocialIconsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0rem;
 `;
 
 const FooterText = styled.p`
@@ -76,6 +98,7 @@ export const Layout = ({
 
   return (
     <>
+      <Seo />
       <GlobalStyle />
       <AppHeader>
         <LeftContainer>
@@ -98,17 +121,32 @@ export const Layout = ({
           </LinksContainer>
         </LeftContainer>
         <ThemeToggleButton onClick={() => toggleTheme()}>
-          {activeTheme === defaultTheme ? <BiMoon /> : <BiSun />}
+          {activeTheme === defaultTheme ? (
+            <HiOutlineMoon />
+          ) : (
+            <HiOutlineLightBulb />
+          )}
         </ThemeToggleButton>
       </AppHeader>
 
       <main>{children}</main>
       <Footer>
-        <FooterText>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://nextjs.org">NextJs</a>
-        </FooterText>
+        <CopyrightTextContainer>
+          <FooterText>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://nextjs.org">NextJs</a>
+          </FooterText>
+          <FaArrowCircleUp
+            size={24}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          />
+        </CopyrightTextContainer>
+        <SocialIconsContainer>
+          <FaTwitter size={24} />
+          <FaGithub size={24} />
+          <FaLinkedin size={24} />
+        </SocialIconsContainer>
       </Footer>
     </>
   );

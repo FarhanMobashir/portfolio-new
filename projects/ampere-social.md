@@ -1,5 +1,6 @@
 ---
 title: "Ampere Social - A social media platform like Pinterest"
+description: "Ampere Social is a social media platform like Pinterest. It's built with React, Node, Express and MongoDB."
 date: "2019-01-02"
 technology:
   [
@@ -12,9 +13,27 @@ technology:
     "Express",
     "MongoDB",
   ]
-link: "https://github.com/FarhanMobashir/ampere-social-frontend"
+liveLink: "https://ampere-social.netlify.app/"
+sourceCode: "https://github.com/FarhanMobashir/ampere-social-frontend"
 ---
 
-# Hardtail
+# Ampere Social
 
-Hardtail is a data fetching library for React. It's designed to be used with React Hooks.
+Ampere Social is a social media platform like Pinterest. It's built with React, Node, Express and MongoDB.
+
+I've used Typescript for the frontend. I've also used Redux Toolkit and RTK Query for the state management.
+
+## Features
+
+- Create an account
+- Login
+- Logout
+- Create a pin
+- Delete a pin
+- Comment on a pin
+- Create a board
+- Delete a board
+- Add a pin to a board
+- Remove a pin from a board
+- Follow a user
+- Unfollow a user

@@ -45,9 +45,8 @@ export default function Writings({ allPostsData }) {
     <>
       <Heading>Writings</Heading>
       <Desciption>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-        voluptas, quod, quia, voluptates quae voluptatem quibusdam voluptatum
-        quos quas quidem nesciunt. Quisquam, quae. Quisquam quae, quod quibusdam
+        I write about my experiences and learnings. I also write about the
+        technologies I use and the problems I face.
       </Desciption>
       {allPostsData.map(({ id, date, title }) => (
         <BlogBox key={id}>
