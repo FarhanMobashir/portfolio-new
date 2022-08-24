@@ -6,6 +6,7 @@ import Date from "../../components/Date";
 import { getSortedProjectsData } from "../../lib/projects";
 import { typeScale } from "../../utils/typography";
 import { BiLinkExternal } from "react-icons/bi";
+import Head from "next/head";
 
 const Heading = styled.h1`
   color: ${(props) => props.theme.textColor};
@@ -86,6 +87,9 @@ export async function getStaticProps() {
 export default function Projects({ allPostsData }) {
   return (
     <>
+      <Head>
+        <title>Projects</title>
+      </Head>
       <Heading>Projects</Heading>
       <Desciption>
         I have worked on a few projects. I have also contributed to open source

@@ -6,6 +6,7 @@ import { getPostMinute } from "../../lib/helpers";
 import { getSortedPostsData } from "../../lib/posts";
 import { typeScale } from "../../utils/typography";
 import { FaRegClock } from "react-icons/fa";
+import Head from "next/head";
 
 const Heading = styled.h1`
   color: ${(props) => props.theme.textColor};
@@ -65,6 +66,9 @@ export async function getStaticProps() {
 export default function Writings({ allPostsData }) {
   return (
     <>
+      <Head>
+        <title>Writings</title>
+      </Head>
       <Heading>Writings</Heading>
       <Desciption>
         I write about my experiences and learnings. I also write about the

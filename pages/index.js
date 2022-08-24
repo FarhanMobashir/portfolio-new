@@ -7,6 +7,7 @@ import { RiSpotifyLine } from "react-icons/ri";
 import { getSortedProjectsData } from "../lib/projects";
 import { getSortedPostsData } from "../lib/posts";
 import { FaArrowRight } from "react-icons/fa";
+import Head from "next/head";
 
 const HeroSectionContainer = styled.div`
   display: flex;
@@ -341,6 +342,10 @@ const IndexPage = ({ projects, blogs }) => {
 
   return (
     <>
+      <Head>
+        <title>Mobashir Farhan</title>
+        <link rel="icon" href="/logo.svg" />
+      </Head>
       <HeroSectionContainer>
         <ContentContainer>
           <UserName>
