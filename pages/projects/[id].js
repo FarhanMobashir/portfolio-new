@@ -66,10 +66,10 @@ export default function Project({ postData }) {
         </TechnologyUsedContainer>
         <Date dateString={postData.date} />
         <LinksContainer>
-          <ViewProjectButton href={postData.link} target="_blank">
+          <ViewProjectButton href={postData.liveLink} target="_blank">
             Live Link <BiLinkExternal />
           </ViewProjectButton>
-          <ViewProjectButton href={postData.link} target="_blank">
+          <ViewProjectButton href={postData.sourceCode} target="_blank">
             Source Code <BiLinkExternal />
           </ViewProjectButton>
         </LinksContainer>

@@ -255,6 +255,7 @@ const BlogLink = styled.a`
   margin: 0;
   display: flex;
   align-items: center;
+  cursor: pointer;
   gap: 0.5rem;
   font-weight: normal;
   text-decoration: underline;
@@ -301,7 +302,7 @@ const HeroData = {
     name: "mobashir farhan",
     profession: "singing 🎸 | photography 📸 | music 🎧",
     intro:
-      "this is mobashir farhan, and he enjoys watching the sunset, eating candyfloss and waking up late in the morning.Just kidding, more importantly his friend will describe him as someone who loves to draw beautiful things, cook delicious foods, play guitar and loves to motivate them to start learning programming which sometimes irritate them 😂",
+      "this is mobashir farhan, and he enjoys watching the sunset, eating candyfloss and waking up late in the morning.Just kidding, more importantly his friend will describe him as someone who loves to draw beautiful things, cook delicious foods, play guitar and loves to motivate them to start learning programming which sometimes irritate them.",
     avatar: "https://i.ibb.co/WfTLdny/pro-c.jpg",
   },
   professional: {

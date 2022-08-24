@@ -4,7 +4,7 @@ description: "Quick-i is a app to create and take interviews. It's built with Re
 date: "2022-05-09"
 technology: ["React", "PeerJs", "YJS", "Node", "Express", "MongoDB"]
 liveLink: "https://hackneog-frontend.vercel.app/"
-sourceCode: "https://github.com/FarhanMobashir/hackneog-backend"
+sourceCode: "https://github.com/FarhanMobashir/hackneog-frontend"
 ---
 
 # Quick-i

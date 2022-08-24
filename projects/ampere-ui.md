@@ -3,8 +3,8 @@ title: "Ampere UI - A UI library for Web"
 description: "Ampere UI is a UI library for Web. It's built with HTML, CSS and a little bit of JavaScript."
 date: "2022-02-22"
 technology: ["HTML", "CSS", "JavaScript"]
-liveLink: "https://hardtail.netlify.app/"
-sourceCode: "https://github.com/FarhanMobashir/hardtail"
+liveLink: "https://ampereui.netlify.app/"
+sourceCode: "https://github.com/FarhanMobashir/ampereui"
 ---
 
 # AmpereUI
