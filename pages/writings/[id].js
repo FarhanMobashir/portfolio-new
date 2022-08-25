@@ -51,6 +51,9 @@ const ReadAloudContainer = styled.div`
   align-items: center;
   gap: 1rem;
   margin: 1rem 0rem;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const ReadAloudButton = styled.button`

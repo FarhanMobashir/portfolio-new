@@ -3,7 +3,6 @@ import * as React from "react";
 import styled from "styled-components";
 import { typeScale } from "../utils/typography";
 import { FaExternalLinkAlt, FaSpotify } from "react-icons/fa";
-import { RiSpotifyLine } from "react-icons/ri";
 import { getSortedProjectsData } from "../lib/projects";
 import { getSortedPostsData } from "../lib/posts";
 import { FaArrowRight } from "react-icons/fa";
