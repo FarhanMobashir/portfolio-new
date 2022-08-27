@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { red } from "./colors";
+import { neutral } from "./colors";
 import { primaryFont } from "./typography";
 
 export const GlobalStyle = createGlobalStyle`
@@ -17,8 +17,8 @@ code {
     monospace;
   overflow: auto;
   width: 100%;
-  color: ${(props) => props.theme.textColor};
-  border: 1px solid ${red[300]};
+  color: ${(props) => props.theme.codeColor};
+  background-color: ${neutral[300]};
   padding: 0.1rem;
   border-radius: 4px;
 }
@@ -31,13 +31,14 @@ pre {
   background-color: ${(props) => props.theme.bgColor};
   border-radius: 1rem;
   padding: 1rem;
-  color: ${(props) => props.theme.textColor};
+  background-color: ${neutral[300]};
 }
 
 pre code {
   background-color: transparent;
   border: none;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.codeColor};
+  background-color: ${neutral[300]};
 }
 
 body {

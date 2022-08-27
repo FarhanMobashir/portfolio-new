@@ -9,7 +9,7 @@ import { getPostMinute } from "../../lib/helpers";
 import { FaPlayCircle, FaRegClock, FaStopCircle } from "react-icons/fa";
 
 const MainContainer = styled.div`
-  word-wrap: break-word;
+  /* word-wrap: break-word; */
 `;
 
 const ProgressBar = styled.div`
