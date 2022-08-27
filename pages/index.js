@@ -316,9 +316,9 @@ const HeroData = {
 
 export const getStaticProps = async () => {
   const allProjectsData = getSortedProjectsData().slice(0, 3);
-  const allPostsData = await getSortedPostsData();
+  let allPostsData = await getSortedPostsData();
 
-  allPostsData.slice(0, 3);
+  allPostsData = allPostsData.slice(0, 3);
 
   return {
     props: {
