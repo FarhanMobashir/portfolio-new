@@ -134,7 +134,8 @@ const ListItem = styled.li`
   font-size: ${typeScale.helperText};
   border: 1px solid ${(props) => props.theme.textColorLight};
   padding: 0.5rem 1rem;
-  border-radius: 10px;
+  border-radius: 50px;
+  text-align: center;
   margin: 0;
   font-weight: normal;
 `;
@@ -190,13 +191,18 @@ const ProjectContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  border : 1px dashed ${(props) => props.theme.textColorLight};
+  border-bottom: 5px solid ${(props) => props.theme.textColorLight};
+  padding: 10px 15px;
+  padding-bottom: 1rem;
+  border-radius: 10px;
 `;
 
 const ProjectTitle = styled.h3`
   cursor: pointer;
   color: ${(props) => props.theme.textColor};
   margin: 0;
-  text-decoration: underline;
+    text-decoration: underline;
   font-weight: bold;
 `;
 
@@ -236,6 +242,10 @@ const BlogContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  border : 1px dashed ${(props) => props.theme.textColorLight};
+  border-bottom: 5px solid ${(props) => props.theme.textColorLight};
+  padding: 10px 15px;
+  border-radius: 10px;
 `;
 
 const BlogTitle = styled.h3`
@@ -302,7 +312,7 @@ const HeroData = {
     name: "mobashir farhan",
     profession: "singing 🎸 | photography 📸 | music 🎧",
     intro:
-      "this is mobashir farhan, and he enjoys watching the sunset, eating candyfloss and waking up late in the morning.Just kidding, more importantly his friend will describe him as someone who loves to draw beautiful things, cook delicious foods, play guitar and loves to motivate them to start learning programming which sometimes irritate them.",
+      "this is mobashir farhan, and he enjoys watching the sunset, eating candyfloss and waking up late in the morning.Just kidding, more importantly his friend will describe him as someone who loves to paint, cook delicious foods, play guitar. He also loves to click street photos listen Imagine Dragons",
     avatar: "https://i.ibb.co/WfTLdny/pro-c.jpg",
   },
   professional: {
@@ -310,9 +320,28 @@ const HeroData = {
     profession: "FrontEnd 🧑‍💻 | Javascript 🟨 | ReactJs ⚛️",
     intro:
       "I am a FrontEnd Developer, I love to code and I am passionate about learning new things. I love to solve problems and I am always ready to learn new things. I want to be a part of a team where I can learn and grow. Curious to know more about me? Let's connect!",
-    avatar: "https://i.ibb.co/52ns5nT/prof.jpg",
+    // avatar: "https://i.ibb.co/52ns5nT/prof.jpg",
+    avatar: "https://i.ibb.co/WfTLdny/pro-c.jpg",
+
   },
 };
+
+const skills = [
+  "ReactJs",
+  "NextJs",
+  "HTML",
+  "CSS",
+  "Vanilla JavaScript",
+  "TypeScript",
+  "Styled Components",
+  "Redux Toolkit",
+  "Material UI",
+  "Storybook",
+  "NodeJs",
+  "ExpressJs",
+  "MongoDB",
+  "Git",
+];
 
 export const getStaticProps = async () => {
   const allProjectsData = getSortedProjectsData().slice(0, 3);
@@ -437,18 +466,11 @@ const IndexPage = ({ projects, blogs }) => {
           These are the technologies I have worked with in the past
         </SectionSubtitle>
         <UnorderedListForProjects>
-          <ListItem>ReactJs</ListItem>
-          <ListItem>NextJs</ListItem>
-          <ListItem>GatsbyJs</ListItem>
-          <ListItem>NodeJs</ListItem>
-          <ListItem>ExpressJs</ListItem>
-          <ListItem>MongoDB</ListItem>
-          <ListItem>Git</ListItem>
-          <ListItem>HTML</ListItem>
-          <ListItem>CSS</ListItem>
-          <ListItem>JavaScript</ListItem>
-          <ListItem>TypeScript</ListItem>
-          <ListItem>Styled Components</ListItem>
+          {
+            skills.map((skill) => (
+              <ListItem key={skill}>{skill}</ListItem>
+            ))
+          }
         </UnorderedListForProjects>
         <SectionDivider />
       </SectionContainer>
