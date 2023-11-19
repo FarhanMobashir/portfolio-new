@@ -138,6 +138,9 @@ const ListItem = styled.li`
   text-align: center;
   margin: 0;
   font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const NowPlayingContainer = styled.div`
@@ -313,7 +316,7 @@ const HeroData = {
     profession: "singing 🎸 | photography 📸 | music 🎧",
     intro:
       "this is mobashir farhan, and he enjoys watching the sunset, eating candyfloss and waking up late in the morning.Just kidding, more importantly his friend will describe him as someone who loves to paint, cook delicious foods, play guitar. He also loves to click street photos listen Imagine Dragons",
-    avatar: "https://i.ibb.co/WfTLdny/pro-c.jpg",
+    avatar: "https://i.ibb.co/KbsYnqM/pro-portfolio.jpg",
   },
   professional: {
     name: "Mobashir Farhan",
@@ -321,7 +324,7 @@ const HeroData = {
     intro:
       "I am a FrontEnd Developer, I love to code and I am passionate about learning new things. I love to solve problems and I am always ready to learn new things. I want to be a part of a team where I can learn and grow. Curious to know more about me? Let's connect!",
     // avatar: "https://i.ibb.co/52ns5nT/prof.jpg",
-    avatar: "https://i.ibb.co/WfTLdny/pro-c.jpg",
+    avatar: "https://i.ibb.co/KbsYnqM/pro-portfolio.jpg",
 
   },
 };
