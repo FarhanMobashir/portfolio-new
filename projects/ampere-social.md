@@ -1,7 +1,7 @@
 ---
 title: "Ampere Social - A social media platform like Pinterest"
 description: "Ampere Social is a social media platform like Pinterest. It's built with React, Node, Express and MongoDB."
-date: "2022-08-15"
+date: "2022-07-15"
 technology:
   [
     "React",

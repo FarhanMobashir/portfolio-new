@@ -1,7 +1,7 @@
 ---
 title: "Hardtail - A data fetching library for React"
 description: "Hardtail is a data fetching library for React that allows you to fetch data in a declarative way."
-date: "2022-07-06"
+date: "2022-07-22"
 technology: ["React", "fetchApi", "Context API"]
 liveLink: "https://hardtail.netlify.app/"
 sourceCode: "https://github.com/FarhanMobashir/hardtail"
