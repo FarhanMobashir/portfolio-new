@@ -173,7 +173,7 @@ const SongName = styled.h6`
 const NowPlayingText = styled.p`
   color: ${(props) => props.theme.textColor};
   margin: 0;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: small;
 `;
 
@@ -363,10 +363,30 @@ export const getStaticProps = async () => {
 // markup
 const IndexPage = ({ projects, blogs }) => {
   const [data, setData] = React.useState(null);
-  React.useEffect(() => {
+
+  const fetchData = () => {
     fetch("/api/top-tracks")
       .then((res) => res.json())
-      .then((data) => setData(data.data));
+      .then((data) => setData(data.data))
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+
+  React.useEffect(() => {
+    // Initial data fetch
+    fetchData();
+
+    // Polling interval in milliseconds (e.g., every 10 seconds)
+    const pollingInterval = 5000;
+
+    // Set up polling using setInterval
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, pollingInterval);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(intervalId);
   }, []);
 
   const [isCasual, setIsCasual] = React.useState(false);
@@ -481,23 +501,25 @@ const IndexPage = ({ projects, blogs }) => {
         <NowPlayingContainer>
           <FaSpotify color="green" size={30} />
           <NowPlayingText>
-            {data ? "Now Listening" : "Not Playing"}
+            {data ? "Listening Now 🎧" : "Not Playing"}
           </NowPlayingText>
         </NowPlayingContainer>
         <NowPlayingContentContainer>
-          {data && (
+          {data && data?.currently_playing_type !== "episode" ? (
             <>
               <NowPlayingTitleAndArtistContainer>
                 <SongName>
-                  {data.item.name.length > 20
-                    ? data.item.name.slice(0, 20) + "..."
-                    : data.item.name}{" "}
+                  {data?.item?.name.length > 20
+                    ? data?.item?.name?.slice(0, 20) + "..."
+                    : data?.item?.name}{" "}
                 </SongName>
-                <SongArtist>by {data.item.artists[0].name}</SongArtist>
+                <SongArtist> by {data?.item?.artists[0].name}</SongArtist>
               </NowPlayingTitleAndArtistContainer>
-              <AlbumCover src={data.item.album.images[0].url} />
+              <AlbumCover src={data?.item?.album?.images[0].url} />
             </>
-          )}
+          ) : <>
+            <SongArtist>Some Podcast</SongArtist>
+          </>}
         </NowPlayingContentContainer>
       </NowPlayingContainer>
     </>

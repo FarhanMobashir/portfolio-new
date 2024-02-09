@@ -131,9 +131,9 @@ export const Layout = ({
       <Footer>
         <CopyrightTextContainer>
           <FooterText>
-            © {new Date().getFullYear()}, Built with
+            © {new Date().getFullYear()}, Built by
             {` `}
-            <a href="https://nextjs.org">NextJs</a>
+            <a href="https://nextjs.org">Mobashir Farhan</a>
           </FooterText>
           <FaArrowCircleUp
             size={24}
