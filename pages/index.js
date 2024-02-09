@@ -505,7 +505,7 @@ const IndexPage = ({ projects, blogs }) => {
           </NowPlayingText>
         </NowPlayingContainer>
         <NowPlayingContentContainer>
-          {data && data?.currently_playing_type !== "episode" ? (
+          {data && data?.currently_playing_type !== "episode" && (
             <>
               <NowPlayingTitleAndArtistContainer>
                 <SongName>
@@ -517,7 +517,9 @@ const IndexPage = ({ projects, blogs }) => {
               </NowPlayingTitleAndArtistContainer>
               <AlbumCover src={data?.item?.album?.images[0].url} />
             </>
-          ) : <>
+          )}
+
+          {data && data?.currently_playing_type === "episode" && <>
             <SongArtist>Some Podcast</SongArtist>
           </>}
         </NowPlayingContentContainer>
